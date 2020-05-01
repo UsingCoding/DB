@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  study-db:
+    image: percona:stretch
+    container_name: study-db
+    environment:
+      MYSQL_DATABASE: emirates
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+    ports:
+    - 3306:3306
+    volumes:
+      - "./data:/var/lib/mysql"
+      -
+  study-db-test:
+    image: percona:stretch
+    container_name: study-db-test
+    environment:
+      MYSQL_DATABASE: emirates
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
+    ports:
+      - 3000:3306
+
+volumes:
+  study-db-test:
