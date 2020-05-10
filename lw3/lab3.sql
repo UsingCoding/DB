@@ -84,7 +84,8 @@ SELECT comfort_level, COUNT(*) as 'Something meaningful' FROM plane GROUP BY com
 # 8
 
 # 8.1
-SELECT first_name FROM passenger GROUP BY second_name, age HAVING YEAR(age) > 1980;
+SELECT flight_id, COUNT(ticket_id) as tickets_count FROM ticket GROUP BY flight_id HAVING tickets_count > 3;
+# Найти все полёты, у кот было продано больше n билетов
 
 # 8.2
 SELECT comfort_level, crew_count FROM plane GROUP BY capacity HAVING capacity > 100;
@@ -98,7 +99,7 @@ SELECT weight, volume FROM baggage GROUP BY is_fragile HAVING is_fragile = TRUE;
 SELECT * FROM passenger LEFT JOIN ticket ON passenger.passenger_id = ticket.passenger_id;
 
 # 9.2
-SELECT * FROM passenger RIGHT JOIN ticket ON passenger.passenger_id = ticket.passenger_id;
+SELECT * FROM ticket  RIGHT JOIN passenger ON passenger.passenger_id = ticket.passenger_id; -- одинаковые выборки с 9.1
 
 # 9.3
 SELECT price, class, first_name, departure_point FROM passenger LEFT JOIN ticket ON passenger.passenger_id = ticket.passenger_id LEFT JOIN flight ON ticket.flight_id = flight.flight_id;
