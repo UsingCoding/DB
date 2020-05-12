@@ -19,7 +19,7 @@ services:
     image: percona:stretch
     container_name: study-db-test
     environment:
-      MYSQL_DATABASE: emirates
+      MYSQL_DATABASE: pharmaceuticals
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
       MYSQL_ROOT_PASSWORD: 123
       MYSQL_USER: user
