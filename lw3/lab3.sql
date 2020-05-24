@@ -84,7 +84,7 @@ SELECT comfort_level, COUNT(*) as 'Something meaningful' FROM plane GROUP BY com
 # 8
 
 # 8.1
-SELECT first_name FROM passenger GROUP BY second_name, age HAVING YEAR(age) > 1980;
+SELECT flight_id, price FROM ticket GROUP BY flight_id HAVING COUNT(flight_id) > 3000
 
 # 8.2
 SELECT comfort_level, crew_count FROM plane GROUP BY capacity HAVING capacity > 100;
