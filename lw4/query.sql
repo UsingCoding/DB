@@ -41,7 +41,7 @@ WHERE checkin_date <= CAST('2019-03-23' AS DATE)
   AND hotel.name = 'Космос'
 GROUP BY room_category.id_room_category;
 
-#5. Дать список последних проживавших клиентов по всем комнатам гостиницы “Космос”, выехавшим в апреле с указанием даты выезда
+#5. Дать список последних |проживавших| клиентов по всем комнатам гостиницы “Космос”, выехавшим в апреле с указанием даты выезда
 SELECT client.name, room.id_room, room_in_booking.checkout_date
 FROM room_in_booking
          LEFT JOIN room ON room.id_room = room_in_booking.id_room
@@ -77,7 +77,8 @@ SELECT rib_1.id_room_in_booking as rib_1,
        rib_2.checkin_date as checkout_2,
        rib_2.checkout_date as checkout_2
 FROM room_in_booking rib_1 LEFT JOIN room_in_booking rib_2 ON rib_1.id_room = rib_2.id_room
-WHERE (rib_1.checkin_date < rib_2.checkin_date AND rib_2.checkin_date < rib_1.checkout_date) AND (rib_1.id_room_in_booking != rib_2.id_room_in_booking);
+WHERE (rib1.id_room_in_booking != rib2.id_room_in_booking)
+  AND (rib1.checkin_date < rib2.checkin_date AND rib2.checkin_date < rib1.checkout_date);
 
 
 #8. Создать бронирование в транзакции.

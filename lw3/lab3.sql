@@ -85,14 +85,12 @@ SELECT comfort_level, COUNT(*) as 'Something meaningful' FROM plane GROUP BY com
 
 # 8.1
 SELECT flight_id, COUNT(ticket_id) as tickets_count FROM ticket GROUP BY flight_id HAVING tickets_count > 3;
-# Найти все полёты, у кот было продано больше n билетов, оставить что-то одно
-SELECT flight_id, price FROM ticket GROUP BY flight_id HAVING COUNT(flight_id) > 3000
 
 # 8.2
 SELECT comfort_level, crew_count FROM plane GROUP BY capacity HAVING capacity > 100;
 
 # 8.3
-SELECT weight, volume FROM baggage GROUP BY is_fragile HAVING is_fragile = TRUE;
+SELECT COUNT(baggage_id) as baggages FROM baggage GROUP BY weight HAVING weight > 10 AND baggases > 4;
 
 # 9
 
