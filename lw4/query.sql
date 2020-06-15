@@ -85,7 +85,7 @@ WHERE (rib1.id_room_in_booking != rib2.id_room_in_booking)
 BEGIN TRANSACTION;
 INSERT INTO booking (id_client, booking_date)
 VALUES (4, now());
-INSERT INTO room_in_booking (id_booking, id_room, checkin_date, checkout_date)
+INSERT INTO room_in_booking ((SELECT id_booking FROM booking DESC LIMIT 1), id_room, checkin_date, checkout_date)
 VALUES (10000, 1, date('2020-05-01'), date('2020-05-10'));
 COMMIT;
 
